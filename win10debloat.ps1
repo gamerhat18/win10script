@@ -58,13 +58,6 @@ $brave.height                    = 30
 $brave.location                  = New-Object System.Drawing.Point(250,19)
 $brave.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$teamviewer                      = New-Object system.Windows.Forms.Button
-$teamviewer.text                 = "Teamviewer"
-$teamviewer.width                = 150
-$teamviewer.height               = 30
-$teamviewer.location             = New-Object System.Drawing.Point(250,19)
-$teamviewer.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
-
 $firefox                         = New-Object system.Windows.Forms.Button
 $firefox.text                    = "Firefox"
 $firefox.width                   = 150
@@ -135,12 +128,12 @@ $winterminal.height              = 30
 $winterminal.location            = New-Object System.Drawing.Point(751,61)
 $winterminal.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$vscode                          = New-Object system.Windows.Forms.Button
-$vscode.text                     = "VS Code"
-$vscode.width                    = 150
-$vscode.height                   = 30
-$vscode.location                 = New-Object System.Drawing.Point(751,19)
-$vscode.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$teamviewer                      = New-Object system.Windows.Forms.Button
+$teamviewer.text                 = "Teamviewer"
+$teamviewer.width                = 150
+$teamviewer.height               = 30
+$teamviewer.location             = New-Object System.Drawing.Point(250,19)
+$teamviewer.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label2                          = New-Object system.Windows.Forms.Label
 $Label2.text                     = "(Chocolatey Required for installs)"
@@ -423,7 +416,7 @@ $lightmode.location              = New-Object System.Drawing.Point(417,45)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Label1,$Panel2,$Label3,$Panel3,$Label4,$Label15,$Panel4,$Label20,$Label21,$Label23,$PictureBox1))
-$Panel1.controls.AddRange(@($installchoco,$brave,$firefox,$teamviewer,$7zip,$irfanview,$adobereader,$notepad,$gchrome,$mpc,$vlc,$powertoys,$winterminal,$vscode,$Label2))
+$Panel1.controls.AddRange(@($installchoco,$brave,$firefox,$7zip,$irfanview,$adobereader,$notepad,$gchrome,$mpc,$vlc,$powertoys,$winterminal,$teamviewer,$Label2))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$onedrive,$Label22,$lightmode))
 $Panel3.controls.AddRange(@($securitylow,$securityhigh,$Label5,$Label6,$Label7,$Label8,$Label9,$Label10,$Label11,$Label12,$Label13))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19))
@@ -439,12 +432,6 @@ $installchoco.Add_Click({
 $brave.Add_Click({ 
 	Write-Host "Installing Brave Browser"
 	choco install brave -y
-	    $wshell.Popup("Operation Completed",0,"Done",0x0)	
-})
-
-$teamviewer.Add_Click({ 
-	Write-Host "Installing Teamviewer"
-	choco install teamviewer -y
 	    $wshell.Popup("Operation Completed",0,"Done",0x0)	
 })
 
@@ -496,10 +483,10 @@ $7zip.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$vscode.Add_Click({ 
-    Write-Host "Installing Visual Studio Code"
-    choco install vscode -y
-	$wshell.Popup("Operation Completed",0,"Done",0x0)
+$teamviewer.Add_Click({ 
+	Write-Host "Installing Teamviewer"
+	choco install teamviewer -y
+	    $wshell.Popup("Operation Completed",0,"Done",0x0)	
 })
 
 $winterminal.Add_Click({ 
