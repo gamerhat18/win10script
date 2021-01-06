@@ -33,15 +33,21 @@ function installchoco {
     Invoke-WebRequest https://github.com/pbatard/rufus/releases/download/v3.13/rufus-3.13.exe -OutFile C:\Rufus.exe 
     
     Write-Host "Installing Chocolatey"
-	Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-	choco install chocolatey-core.extension -y
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    choco install chocolatey-core.extension -y
 }
 
 function installTeamviewer { 
     Write-Host "Installing Teamviewer"
-	choco install teamviewer -y
-	$wshell.Popup("Operation Completed",0,"Done",0x0)
+    choco install teamviewer -y
+    $wshell.Popup("Operation Completed",0,"Done",0x0)
 }
+
+function runtv {
+    cd 'C:\Program Files (x86)\TeamViewer\'
+    .\TeamViewer.exe
+}
+
 
 
 
@@ -49,5 +55,6 @@ installchoco
 
 installTeamviewer
 
+runtv
 # Chris Titus' Debloat Script command given below for quick copy-paste.
 # iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JJ8R4'))
