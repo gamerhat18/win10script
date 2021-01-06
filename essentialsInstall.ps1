@@ -44,7 +44,7 @@ function installTeamviewer {
 }
 
 function runtv {
-    & 'C:\Program Files (x86)\TeamViewer\.\TeamViewer.exe'
+    & 'C:\Program Files (x86)\TeamViewer\TeamViewer.exe'
 }
 
 
