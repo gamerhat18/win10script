@@ -58,6 +58,13 @@ $brave.height                    = 30
 $brave.location                  = New-Object System.Drawing.Point(250,19)
 $brave.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
+$teamviewer                      = New-Object system.Windows.Forms.Button
+$teamviewer.text                 = "Teamviewer"
+$teamviewer.width                = 150
+$teamviewer.height               = 30
+$teamviewer.location             = New-Object System.Drawing.Point(250,19)
+$teamviewer.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+
 $firefox                         = New-Object system.Windows.Forms.Button
 $firefox.text                    = "Firefox"
 $firefox.width                   = 150
@@ -416,7 +423,7 @@ $lightmode.location              = New-Object System.Drawing.Point(417,45)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Label1,$Panel2,$Label3,$Panel3,$Label4,$Label15,$Panel4,$Label20,$Label21,$Label23,$PictureBox1))
-$Panel1.controls.AddRange(@($installchoco,$brave,$firefox,$7zip,$irfanview,$adobereader,$notepad,$gchrome,$mpc,$vlc,$powertoys,$winterminal,$vscode,$Label2))
+$Panel1.controls.AddRange(@($installchoco,$brave,$firefox,$teamviewer,$7zip,$irfanview,$adobereader,$notepad,$gchrome,$mpc,$vlc,$powertoys,$winterminal,$vscode,$Label2))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$onedrive,$Label22,$lightmode))
 $Panel3.controls.AddRange(@($securitylow,$securityhigh,$Label5,$Label6,$Label7,$Label8,$Label9,$Label10,$Label11,$Label12,$Label13))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19))
@@ -432,6 +439,12 @@ $installchoco.Add_Click({
 $brave.Add_Click({ 
 	Write-Host "Installing Brave Browser"
 	choco install brave -y
+	    $wshell.Popup("Operation Completed",0,"Done",0x0)	
+})
+
+$teamviewer.Add_Click({ 
+	Write-Host "Installing Teamviewer"
+	choco install teamviewer -y
 	    $wshell.Popup("Operation Completed",0,"Done",0x0)	
 })
 
@@ -646,7 +659,6 @@ $essentialtweaks.Add_Click({
 $Bloatware = @(
 
         #Unnecessary Windows 10 AppX Apps
-        "Microsoft.3DBuilder"
         "Microsoft.AppConnector"
 	    "Microsoft.BingFinance"
 	    "Microsoft.BingNews"
@@ -656,7 +668,6 @@ $Bloatware = @(
         "Microsoft.GetHelp"
         "Microsoft.Getstarted"
         "Microsoft.Messaging"
-        "Microsoft.Microsoft3DViewer"
         "Microsoft.MicrosoftSolitaireCollection"
         "Microsoft.NetworkSpeedTest"
         "Microsoft.News"
@@ -664,16 +675,13 @@ $Bloatware = @(
         "Microsoft.Office.Sway"
         "Microsoft.OneConnect"
         "Microsoft.People"
-        "Microsoft.Print3D"
         "Microsoft.SkypeApp"
         "Microsoft.StorePurchaseApp"
         "Microsoft.Wallet"
-        "Microsoft.Whiteboard"
         "Microsoft.WindowsAlarms"
         "microsoft.windowscommunicationsapps"
         "Microsoft.WindowsFeedbackHub"
         "Microsoft.WindowsMaps"
-        "Microsoft.WindowsSoundRecorder"
         "Microsoft.ZuneMusic"
         "Microsoft.ZuneVideo"
 
@@ -757,28 +765,28 @@ $Bloatware = @(
             
     
     #Removes Paint3D stuff from context menu
-$Paint3Dstuff = @(
-        "HKCR:\SystemFileAssociations\.3mf\Shell\3D Edit"
-	"HKCR:\SystemFileAssociations\.bmp\Shell\3D Edit"
-	"HKCR:\SystemFileAssociations\.fbx\Shell\3D Edit"
-	"HKCR:\SystemFileAssociations\.gif\Shell\3D Edit"
-	"HKCR:\SystemFileAssociations\.jfif\Shell\3D Edit"
-	"HKCR:\SystemFileAssociations\.jpe\Shell\3D Edit"
-	"HKCR:\SystemFileAssociations\.jpeg\Shell\3D Edit"
-	"HKCR:\SystemFileAssociations\.jpg\Shell\3D Edit"
-	"HKCR:\SystemFileAssociations\.png\Shell\3D Edit"
-	"HKCR:\SystemFileAssociations\.tif\Shell\3D Edit"
-	"HKCR:\SystemFileAssociations\.tiff\Shell\3D Edit"
-    )
-    #Rename reg key to remove it, so it's revertible
-    foreach ($Paint3D in $Paint3Dstuff) {
-        If (Test-Path $Paint3D) {
-	    $rmPaint3D = $Paint3D + "_"
-	    Set-Item $Paint3D $rmPaint3D
-	}
-    }
-    
-	$wshell.Popup("Operation Completed",0,"Done",0x0)
+#$Paint3Dstuff = @(
+#        "HKCR:\SystemFileAssociations\.3mf\Shell\3D Edit"
+#	"HKCR:\SystemFileAssociations\.bmp\Shell\3D Edit"
+#	"HKCR:\SystemFileAssociations\.fbx\Shell\3D Edit"
+#	"HKCR:\SystemFileAssociations\.gif\Shell\3D Edit"
+#	"HKCR:\SystemFileAssociations\.jfif\Shell\3D Edit"
+#	"HKCR:\SystemFileAssociations\.jpe\Shell\3D Edit"
+#	"HKCR:\SystemFileAssociations\.jpeg\Shell\3D Edit"
+#	"HKCR:\SystemFileAssociations\.jpg\Shell\3D Edit"
+#	"HKCR:\SystemFileAssociations\.png\Shell\3D Edit"
+#	"HKCR:\SystemFileAssociations\.tif\Shell\3D Edit"
+#	"HKCR:\SystemFileAssociations\.tiff\Shell\3D Edit"
+#    )
+#    #Rename reg key to remove it, so it's revertible
+#    foreach ($Paint3D in $Paint3Dstuff) {
+#        If (Test-Path $Paint3D) {
+#	    $rmPaint3D = $Paint3D + "_"
+#	    Set-Item $Paint3D $rmPaint3D
+#	}
+#    }
+#    
+#	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
 $windowssearch.Add_Click({ 
