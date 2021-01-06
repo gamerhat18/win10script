@@ -132,7 +132,7 @@ $teamviewer                      = New-Object system.Windows.Forms.Button
 $teamviewer.text                 = "Teamviewer"
 $teamviewer.width                = 150
 $teamviewer.height               = 30
-$teamviewer.location             = New-Object System.Drawing.Point(250,19)
+$teamviewer.location             = New-Object System.Drawing.Point(751,19)
 $teamviewer.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label2                          = New-Object system.Windows.Forms.Label
