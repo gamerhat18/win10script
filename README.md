@@ -13,7 +13,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JLNpf'))
 ### My Additions
 - Replaced VS Code with Teamviewer
 
-## New additions for this version from upstream
+### New additions for this version from upstream
 - Enable Dark Mode
 - Chocolatey Install
 - O&O Shutup10 CFG and Run
