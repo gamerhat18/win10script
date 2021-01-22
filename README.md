@@ -10,8 +10,8 @@ Read this awesome article to learn more: [Quick-Setup](https://blog.cybrdise.com
 iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JLNpf'))
 ```
 
-> ## My Additions
-> Replaced VS Code with Teamviewer
+### My Additions
+- Replaced VS Code with Teamviewer
 
 ## New additions for this version from upstream
 - Enable Dark Mode
