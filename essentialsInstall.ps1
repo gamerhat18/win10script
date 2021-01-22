@@ -43,8 +43,15 @@ function installTeamviewer {
     $wshell.Popup("Operation Completed",0,"Done",0x0)
 }
 
+function installqbt {
+    Write-Host "Installing qBittorrent"
+    choco install qbittorrent -y
+    $wshell.Popup("Operation Completed",0,"Done",0x0)
+}
+
 function runtv {
     & 'C:\Program Files (x86)\TeamViewer\TeamViewer.exe'
+    Invoke-WebRequest https://raw.githubusercontent.com/gamerhat18/win10script/master/essentialsInstall.ps1 C:\essentialsInstall.ps1
 }
 
 
@@ -57,3 +64,6 @@ installTeamviewer
 runtv
 # Chris Titus' Debloat Script command given below for quick copy-paste.
 # iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/JJ8R4'))
+
+# My scripts
+# https://cybrdise.com/sakshi/one
