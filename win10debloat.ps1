@@ -128,12 +128,12 @@ $winterminal.height              = 30
 $winterminal.location            = New-Object System.Drawing.Point(751,61)
 $winterminal.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$teamviewer                      = New-Object system.Windows.Forms.Button
-$teamviewer.text                 = "Teamviewer"
-$teamviewer.width                = 150
-$teamviewer.height               = 30
-$teamviewer.location             = New-Object System.Drawing.Point(751,19)
-$teamviewer.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$anydesk                         = New-Object system.Windows.Forms.Button
+$anydesk.text                    = "Anydesk"
+$anydesk.width                   = 150
+$anydesk.height                  = 30
+$anydesk.location                = New-Object System.Drawing.Point(751,19)
+$anydesk.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Label2                          = New-Object system.Windows.Forms.Label
 $Label2.text                     = "(Chocolatey Required for installs)"
@@ -416,7 +416,7 @@ $lightmode.location              = New-Object System.Drawing.Point(417,45)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Label1,$Panel2,$Label3,$Panel3,$Label4,$Label15,$Panel4,$Label20,$Label21,$Label23,$PictureBox1))
-$Panel1.controls.AddRange(@($installchoco,$brave,$firefox,$7zip,$irfanview,$adobereader,$notepad,$gchrome,$mpc,$vlc,$powertoys,$winterminal,$teamviewer,$Label2))
+$Panel1.controls.AddRange(@($installchoco,$brave,$firefox,$7zip,$irfanview,$adobereader,$notepad,$gchrome,$mpc,$vlc,$powertoys,$winterminal,$anydesk,$Label2))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$onedrive,$Label22,$lightmode))
 $Panel3.controls.AddRange(@($securitylow,$securityhigh,$Label5,$Label6,$Label7,$Label8,$Label9,$Label10,$Label11,$Label12,$Label13))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19))
@@ -483,9 +483,9 @@ $7zip.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$teamviewer.Add_Click({ 
-	Write-Host "Installing Teamviewer"
-	choco install teamviewer -y
+$anydesk.Add_Click({ 
+	Write-Host "Installing Anydesk"
+	choco install anydesk -y
 	    $wshell.Popup("Operation Completed",0,"Done",0x0)	
 })
 
